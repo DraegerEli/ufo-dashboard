@@ -1,0 +1,7 @@
+# pyscript.toml
+[project]
+name = "UFO Dashboard"
+description = "Loads and visualizes the UFO sightings dataset."
+
+[dependencies]
+packages = ["pandas", "plotly"]

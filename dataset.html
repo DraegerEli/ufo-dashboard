@@ -1,0 +1,71 @@
+<!-- dataset.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Dataset</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- your stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- PyScript core -->
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+  <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+  <script type="module">
+    const loading = document.getElementById('loading');
+    addEventListener('py:ready', () => loading.close());
+    loading.showModal();
+  </script>
+</head>
+<body>
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about_me.html">About Me</a>
+    <a href="research.html">My Research</a>
+    <a href="dataset.html">My Dataset</a>
+    <a href="dashboard.html">My Dashboard</a>
+  </div>
+
+  <div class="content">
+    <h2>My Dataset</h2>
+    <dialog id="loading"><h3>Loading...</h3></dialog>
+
+    <div id="page-message">
+      <p>Click “Load CSV” to pull in your UFO sightings file and display the first/last five rows.</p>
+      <p><a href="ufo_sightings.csv" download>Download the CSV</a></p>
+    </div>
+
+    <div id="pandas-source">
+      <h3>Data Source</h3>
+      <input
+        type="text"
+        id="txt-url"
+        class="py-input"
+        size="70"
+       value="ufo_sightings.csv"
+      />
+      <button
+        type="submit"
+        id="btn-load"
+        class="py-button"
+        py-click="loadFromURL"
+      >
+        Load CSV
+      </button>
+    </div>
+
+    <div id="pandas-output" hidden>
+      <h3>Output</h3>
+      <div id="pandas-output-inner"></div>
+    </div>
+
+    <div id="pandas-dev-console" hidden>
+      <h3>Dev Console</h3>
+      <script type="py" terminal></script>
+    </div>
+
+    <section class="pyscript">
+      <script type="py" src="./main.py" config="./pyscript.toml"></script>
+    </section>
+  </div>
+</body>
+</html>

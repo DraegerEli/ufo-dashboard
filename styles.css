@@ -1,0 +1,51 @@
+/* Apply box-sizing to all elements */
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Horizontal navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #111;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  color: white;
+  padding: 16px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Hover effect */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Main content */
+.content {
+  margin-top: 60px;  /* Space for the fixed navbar */
+  padding: 20px;
+}
+/* ── Chart grid for 4 plots ───────────────────────────────────────── */
+.chart-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.chart-container > div {
+  height: 400px;  /* ensure enough room for each Plotly figure */
+}
